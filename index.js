@@ -12,23 +12,18 @@ const ejsLayouts = require('express-ejs-layouts')
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
+// CONTROLLERS MIDDLEWARE
+app.use('/ahebeh', require('./controllers/ahebeh.js'))
+app.use('/akerha', require('./controllers/akerha.js'))
+
 
 // ROUTES
 
+// Home Route
 app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
-
-// Favorite animals
-app.get('/animals', (req, res) => {
-
-    const context ={
-        animals: ['house cats' ,'arctic monkeys', 'fluffy puppies']
-    }
-
-    res.render('animals.ejs', context)
-})
 
 
 // APP Listener
